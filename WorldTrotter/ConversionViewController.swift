@@ -60,7 +60,7 @@ class ConversionViewController: UIViewController {
         
         if let value = celsiusValue {
             
-            celsiusLabel.text = "\(value)"
+            celsiusLabel.text = numberFormatter.stringFromNumber(value)
         
         } else {
         

@@ -108,12 +108,28 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="glU-sj-Qc6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1831" y="322"/>
+            <point key="canvasLocation" x="1693" y="322"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Web-->
+        <scene sceneID="WeL-Cw-v1m">
+            <objects>
+                <viewController id="dtD-Ui-BDM" customClass="WebViewController" customModule="WorldTrotter" customModuleProvider="target" sceneMemberID="viewController">
+                    <webView key="view" contentMode="scaleToFill" id="8Ot-Qb-dhP">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                    </webView>
+                    <tabBarItem key="tabBarItem" title="Web" id="jq6-Uf-CxK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E8c-4G-ZEG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1693" y="988"/>
+        </scene>
+        <!--Item-->
         <scene sceneID="IWj-qq-Tac">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="TXo-Ka-XJc" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="viP-cG-jVh"/>
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="QTK-7Z-jVL">
                         <autoresizingMask key="autoresizingMask"/>
@@ -127,6 +143,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eye-Ak-fca" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1019" y="322"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JSf-yh-iZ8">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="E3w-8F-mi9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="pfW-5x-zHG">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dtD-Ui-BDM" kind="relationship" relationship="viewControllers" id="ZDf-FW-H01"/>
+                        <segue destination="TXo-Ka-XJc" kind="relationship" relationship="viewControllers" id="wiw-Hf-fDX"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jfz-3Q-FiC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="477" y="1050"/>
         </scene>
     </scenes>
     <resources>

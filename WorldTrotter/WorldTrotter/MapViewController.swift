@@ -6,10 +6,11 @@
 //  Copyright © 2016 Edrick Pascual. All rights reserved.
 //
 
-import UIKit
 import MapKit
+import Foundation
+import UIKit
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
     
     var mapView: MKMapView!
     var currentTime: NSTimeZone!
@@ -67,11 +68,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        print("MVC loaded")
+               print("MVC loaded")
         
     }
-    
-    
 }

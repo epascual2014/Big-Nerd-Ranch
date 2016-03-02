@@ -15,9 +15,18 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
     func textField(textField: UITextField,
         shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
 
-            
+            // Any extra decimal points in the text field will not be allowed.
             let existingTextHasDecimalSeparator = textField.text?.rangeOfString(".")
             let replacementTextHasDecimalSeparator = string.rangeOfString(".")
+            
+            let currentLocale = NSLocale.currentLocale()
+            
+            // Any extra commas in the text field will not be allowed.
+            let decimalSeparator = currentLocale.objectForKey(NSLocaleDecimalSeparator) as! String
+            
+            _ = textField.text?.rangeOfString(decimalSeparator)
+            _ = string.rangeOfString(decimalSeparator)
+            
             
             if existingTextHasDecimalSeparator != nil && replacementTextHasDecimalSeparator != nil {
                 
@@ -66,6 +75,18 @@ class ConversionViewController: UIViewController, UITextFieldDelegate {
             fahrenheitValue = nil
             
         }
+        
+        if let text = textField.text, number = numberFormatter.numberFromString(text) {
+            
+            fahrenheitValue = number.doubleValue
+            
+        } else {
+            
+            fahrenheitValue = nil
+            
+            
+        }
+        
         
     }
     

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Convert-->
@@ -17,13 +18,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degress fahrenheit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xue-ZE-bVS">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degress fahrenheit" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xue-ZE-bVS">
                                 <rect key="frame" x="152" y="174" width="296" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-bv-wR9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="is really" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfm-bv-wR9">
                                 <rect key="frame" x="240" y="225" width="118.5" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -35,7 +36,7 @@
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees celsius" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xE-7U-Mwl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="degrees celsius" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6xE-7U-Mwl">
                                 <rect key="frame" x="176" y="368" width="247.5" height="43"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="36"/>
                                 <color key="textColor" red="0.88235294117647056" green="0.34509803921568627" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
@@ -61,19 +62,25 @@
                             <constraint firstItem="jfm-bv-wR9" firstAttribute="top" secondItem="Xue-ZE-bVS" secondAttribute="bottom" constant="8" id="5Es-RS-rKn"/>
                             <constraint firstItem="6xE-7U-Mwl" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="5PW-Tk-nxw"/>
                             <constraint firstItem="90w-EF-OSR" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="62" id="8hl-nl-VRW"/>
+                            <constraint firstItem="jfm-bv-wR9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="8sS-fX-AcP"/>
                             <constraint firstItem="6xE-7U-Mwl" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="Byt-zi-GZD"/>
                             <constraint firstItem="6xE-7U-Mwl" firstAttribute="top" secondItem="W2C-nS-ZZv" secondAttribute="bottom" constant="8" id="E4P-Dm-2pH"/>
                             <constraint firstItem="jfm-bv-wR9" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="Ffi-io-JqZ"/>
                             <constraint firstItem="90w-EF-OSR" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="Fwh-EP-kGV"/>
                             <constraint firstItem="jfm-bv-wR9" firstAttribute="top" secondItem="Xue-ZE-bVS" secondAttribute="bottom" constant="8" id="GAC-qR-IwY"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="Xue-ZE-bVS" secondAttribute="trailing" id="GfJ-u3-Ih1"/>
                             <constraint firstItem="6xE-7U-Mwl" firstAttribute="top" secondItem="W2C-nS-ZZv" secondAttribute="bottom" constant="8" id="KM5-mX-UBu"/>
                             <constraint firstItem="90w-EF-OSR" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Kzn-jW-bfl"/>
                             <constraint firstItem="W2C-nS-ZZv" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="PHf-C4-aeI"/>
                             <constraint firstItem="W2C-nS-ZZv" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="Vgb-FH-pt7"/>
+                            <constraint firstItem="6xE-7U-Mwl" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="WZp-ul-Zfk"/>
                             <constraint firstItem="6xE-7U-Mwl" firstAttribute="top" secondItem="W2C-nS-ZZv" secondAttribute="bottom" constant="8" id="YMe-1F-n6u"/>
                             <constraint firstItem="W2C-nS-ZZv" firstAttribute="top" secondItem="jfm-bv-wR9" secondAttribute="bottom" constant="8" id="Zj3-Ih-Tcs"/>
                             <constraint firstItem="Xue-ZE-bVS" firstAttribute="top" secondItem="90w-EF-OSR" secondAttribute="bottom" constant="8" id="etd-1Q-MvB"/>
                             <constraint firstItem="jfm-bv-wR9" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="fPy-zJ-3ST"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="6xE-7U-Mwl" secondAttribute="trailing" id="hIk-o9-kfI"/>
+                            <constraint firstItem="Xue-ZE-bVS" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="hcZ-4F-qEf"/>
+                            <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="jfm-bv-wR9" secondAttribute="trailing" id="hgD-n0-Ppl"/>
                             <constraint firstItem="6xE-7U-Mwl" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="lWW-11-eDp"/>
                             <constraint firstItem="jfm-bv-wR9" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="tWK-2Q-9ja"/>
                             <constraint firstItem="W2C-nS-ZZv" firstAttribute="centerX" secondItem="Xue-ZE-bVS" secondAttribute="centerX" id="vrT-Jt-xhH"/>
@@ -155,7 +162,6 @@
                     </tabBar>
                     <connections>
                         <segue destination="dtD-Ui-BDM" kind="relationship" relationship="viewControllers" id="ZDf-FW-H01"/>
-                        <segue destination="TXo-Ka-XJc" kind="relationship" relationship="viewControllers" id="wiw-Hf-fDX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jfz-3Q-FiC" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,11 +8,14 @@ class ViewController: UIViewController {
 
     
     @IBOutlet weak var questionLabel: UILabel!
-    
     @IBOutlet weak var answerLabel: UILabel!
     
     
-    let questions: [String] = ["From what is cognac made?", "What is 7+7?", "What is the capital of Vermont?"]
+    @IBOutlet var currentQuestionLabel : UILabel!
+    @IBOutlet var nextQuestionLabel: UILabel!
+    
+    
+    let questions: [String] = ["From what is cognac made?", "What is 7 + 7?", "What is the capital of Vermont?"]
     
     let answers: [String] = ["Grapes", "14", "Montpelier"]
     
@@ -21,11 +24,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        questionLabel.text = questions[currentQuestionIndex]
+        let question = questions[currentQuestionIndex]
+//        questionLabel.text = question
+        currentQuestionLabel.text = question
         
     }
     
-    func showNextQuestion(sender: AnyObject) {
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // Label's initial alpha at 0
+//        questionLabel.alpha = 0
+        nextQuestionLabel.alpha = 0
+    }
+    
+    @IBAction func showNextQuestion(sender: AnyObject) {
         ++currentQuestionIndex
         
         if currentQuestionIndex == questions.count {
@@ -34,14 +47,16 @@ class ViewController: UIViewController {
         }
         
         let question: String = questions[currentQuestionIndex]
-        questionLabel.text = question
+//        questionLabel.text = question
+        nextQuestionLabel.text = question
         answerLabel.text = "???"
         
+        // Animate the label when user clicks next.
         animateLabelTransitions()
         
     }
     
-    func showAnswer(sender: AnyObject) {
+    @IBAction func showAnswer(sender: AnyObject) {
         
         let answer: String = answers[currentQuestionIndex]
         answerLabel.text = answer
@@ -50,28 +65,29 @@ class ViewController: UIViewController {
     
     func animateLabelTransitions() {
         
-        let animationClosure = { () -> Void in
-            
-            self.questionLabel.alpha = 1
-            
-        }
-        
         //Animate the alpha
-        UIView.animateWithDuration(0.5, animations: animationClosure)
-        
         UIView.animateWithDuration(0.5, animations: {
-            self.questionLabel.alpha = 1
+//            self.questionLabel.alpha = 1
+            self.currentQuestionLabel.alpha = 0
+            self.nextQuestionLabel.alpha = 1
+
+        
         })
         
-        
-    }
+        UIView.animateWithDuration(0.5,
+            delay: 0,
+            options: [],
+            animations:  {
+                self.currentQuestionLabel.alpha = 0
+                self.nextQuestionLabel.alpha = 1
+        },
+            completion:  { _ in
+                swap(&self.currentQuestionLabel, &self.nextQuestionLabel)
+
+        })
     
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        // Label's initial alpha at 0
-        questionLabel.alpha = 0
     }
+   
 
 }
 

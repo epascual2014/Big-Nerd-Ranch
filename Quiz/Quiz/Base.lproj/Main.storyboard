@@ -53,22 +53,22 @@
                         <constraints>
                             <constraint firstItem="KGx-fz-Hjq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1vw-AX-Chf"/>
                             <constraint firstItem="qo5-F9-zGX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2ln-25-5tF"/>
-                            <constraint firstItem="qo5-F9-zGX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="6pt-nN-rmL"/>
                             <constraint firstItem="ZKp-Pt-gzl" firstAttribute="top" secondItem="4iw-bq-gbF" secondAttribute="bottom" constant="25" id="8Jf-GZ-SR7"/>
                             <constraint firstItem="4iw-bq-gbF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9OQ-f5-NHi"/>
                             <constraint firstItem="jo5-Ge-HWT" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="FXw-xw-D0m"/>
                             <constraint firstItem="qo5-F9-zGX" firstAttribute="top" secondItem="4iw-bq-gbF" secondAttribute="top" id="Hhh-cz-u1b"/>
                             <constraint firstItem="jo5-Ge-HWT" firstAttribute="top" secondItem="ZKp-Pt-gzl" secondAttribute="bottom" constant="72" id="MJU-os-7tQ"/>
                             <constraint firstItem="KGx-fz-Hjq" firstAttribute="top" secondItem="jo5-Ge-HWT" secondAttribute="bottom" constant="25" id="dxR-MT-b5B"/>
-                            <constraint firstItem="qo5-F9-zGX" firstAttribute="top" secondItem="4iw-bq-gbF" secondAttribute="top" id="nU4-Rn-sii"/>
                             <constraint firstItem="4iw-bq-gbF" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="qno-CB-86L"/>
-                            <constraint firstItem="ZKp-Pt-gzl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="sOc-vR-DPU"/>
+                            <constraint firstItem="ZKp-Pt-gzl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="uTj-tV-9ri"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="answerLabel" destination="jo5-Ge-HWT" id="bfx-r7-kGN"/>
                         <outlet property="currentQuestionLabel" destination="4iw-bq-gbF" id="Mqy-w6-rgu"/>
+                        <outlet property="currentQuestionLabelCenterXConstraint" destination="9OQ-f5-NHi" id="gfa-aD-GY7"/>
                         <outlet property="nextQuestionLabel" destination="qo5-F9-zGX" id="T1v-Eh-8MX"/>
+                        <outlet property="nextQuestionLabelCenterXConstraint" destination="2ln-25-5tF" id="DCQ-hr-jMS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

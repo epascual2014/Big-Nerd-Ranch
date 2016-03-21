@@ -24,10 +24,11 @@ class ItemStore {
         
     }
     
-    init() {
+    func removeItem(item: Item) {
         
-        for _ in 0..<5 {
-            createItem()
+        if let index = allItems.indexOf(item) {
+            allItems.removeAtIndex(index)
+            
         }
         
     }

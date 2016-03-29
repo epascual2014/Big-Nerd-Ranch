@@ -25,17 +25,18 @@ class ItemCell: UITableViewCell {
         let caption1Font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
         serialNumberLabel.font = caption1Font
         
-
-        var valueInt = NSFormatter
-        if serialNumberLabel.text! < 50 {
-            
-            
-        } else {
-            let redText = UIColor.redColor()
-            serialNumberLabel.font = redText
-        }
-        
-        
+//        
+//        let textColor = Int(valueLabel.text!)
+//        
+//        if textColor <= Int(50) {
+//            valueLabel.textColor = UIColor.greenColor()
+//        
+//        } else {
+//        
+//            valueLabel.textColor = UIColor.redColor()
+//        }
+//        
+//        
     }
     
     

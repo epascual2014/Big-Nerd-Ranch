@@ -98,6 +98,11 @@ class ItemsViewController: UITableViewController {
         
     }
     
+    
+    
+
+
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         // If the table view is asking to commit a delete command ...
@@ -106,7 +111,6 @@ class ItemsViewController: UITableViewController {
             
             let title = "Remove \(item.name)?"
             let message = "Are you sure you want to remove this item?"
-            
             
             let ac = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
@@ -126,6 +130,7 @@ class ItemsViewController: UITableViewController {
             
             // Present the alert controller
             presentViewController(ac, animated: true, completion: nil)
+
             
         }
     }

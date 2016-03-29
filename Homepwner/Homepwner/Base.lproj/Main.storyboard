@@ -51,21 +51,21 @@
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="64.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaJ-Gx-sod">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalCompressionResistancePriority="749" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaJ-Gx-sod">
                                             <rect key="frame" x="14" y="36" width="26.5" height="12"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                             <color key="textColor" red="0.3864425505050505" green="0.3864425505050505" blue="0.3864425505050505" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjp-Z8-LJL">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zjp-Z8-LJL">
                                             <rect key="frame" x="539" y="22.5" width="42" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeZ-tJ-eAB">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OeZ-tJ-eAB">
                                             <rect key="frame" x="14" y="12" width="42" height="20.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -73,6 +73,7 @@
                                     <constraints>
                                         <constraint firstAttribute="bottomMargin" secondItem="iaJ-Gx-sod" secondAttribute="bottom" constant="8.5" id="03C-td-KFr"/>
                                         <constraint firstItem="OeZ-tJ-eAB" firstAttribute="leading" secondItem="CHA-ki-28X" secondAttribute="leadingMargin" constant="6" id="1b3-AI-3G4"/>
+                                        <constraint firstItem="iaJ-Gx-sod" firstAttribute="top" secondItem="OeZ-tJ-eAB" secondAttribute="bottom" constant="3.5" id="NMg-mt-tea"/>
                                         <constraint firstItem="iaJ-Gx-sod" firstAttribute="leading" secondItem="OeZ-tJ-eAB" secondAttribute="leading" id="U6C-JD-t3z"/>
                                         <constraint firstItem="zjp-Z8-LJL" firstAttribute="centerY" secondItem="CHA-ki-28X" secondAttribute="centerY" id="ZIO-Zv-xA2"/>
                                         <constraint firstItem="OeZ-tJ-eAB" firstAttribute="top" secondItem="CHA-ki-28X" secondAttribute="topMargin" constant="4" id="cIs-fd-0H9"/>

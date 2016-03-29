@@ -16,4 +16,27 @@ class ItemCell: UITableViewCell {
     @IBOutlet var valueLabel: UILabel!
     
     
+    func updateLabels() {
+        
+        let bodyFont = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        nameLabel.font = bodyFont
+        valueLabel.font = bodyFont
+        
+        let caption1Font = UIFont.preferredFontForTextStyle(UIFontTextStyleBody)
+        serialNumberLabel.font = caption1Font
+        
+
+        var valueInt = NSFormatter
+        if serialNumberLabel.text! < 50 {
+            
+            
+        } else {
+            let redText = UIColor.redColor()
+            serialNumberLabel.font = redText
+        }
+        
+        
+    }
+    
+    
 }

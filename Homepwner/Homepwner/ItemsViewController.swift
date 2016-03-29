@@ -98,11 +98,6 @@ class ItemsViewController: UITableViewController {
         
     }
     
-    
-    
-
-
-    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         // If the table view is asking to commit a delete command ...
@@ -141,5 +136,20 @@ class ItemsViewController: UITableViewController {
         itemStore.moveItemAtIndex(sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // If the triggered segue is the ShowItem Segue
+        if segue.identifier == "ShowItem" {
+            
+            // Figure out which row was tapped
+            if let row = tableView.indexPathForSelectedRow?.row {
+                
+                // Get the item assoc with this row and pass it along
+                let item = itemStore.allItems[row]
+                let detailViewController = segue.destinationViewController as! DetailedViewController
+                detailViewController.item = item 
+                
+            }
+        }
+    }
     
 }

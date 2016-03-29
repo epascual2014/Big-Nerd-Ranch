@@ -84,6 +84,7 @@
                                     <outlet property="nameLabel" destination="OeZ-tJ-eAB" id="So4-iX-146"/>
                                     <outlet property="serialNumberLabel" destination="iaJ-Gx-sod" id="05q-Qu-9uy"/>
                                     <outlet property="valueLabel" destination="zjp-Z8-LJL" id="5T3-KB-Qzq"/>
+                                    <segue destination="XbZ-xD-pMd" kind="show" identifier="ShowItem" id="D9K-hH-n9a"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -97,10 +98,10 @@
             </objects>
             <point key="canvasLocation" x="440" y="46"/>
         </scene>
-        <!--View Controller-->
+        <!--Detailed View Controller-->
         <scene sceneID="aOV-7y-clk">
             <objects>
-                <viewController id="XbZ-xD-pMd" sceneMemberID="viewController">
+                <viewController id="XbZ-xD-pMd" customClass="DetailedViewController" customModule="Homepwner" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Hy-Po-BBb"/>
                         <viewControllerLayoutGuide type="bottom" id="ZJ9-ZC-8gG"/>
@@ -182,6 +183,12 @@
                             <constraint firstItem="Ewa-Gf-uyd" firstAttribute="top" secondItem="8Hy-Po-BBb" secondAttribute="bottom" constant="8" id="rfd-Ke-K6Z"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="dateLabel" destination="lUE-ZD-TJs" id="bI6-en-1le"/>
+                        <outlet property="nameField" destination="6Y7-Oc-6XY" id="EIU-oa-2kn"/>
+                        <outlet property="serialNumberField" destination="FL2-Fw-UBa" id="vUM-2k-GGj"/>
+                        <outlet property="valueField" destination="5jH-JO-fAm" id="czj-qz-igx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o4s-hj-Hoh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

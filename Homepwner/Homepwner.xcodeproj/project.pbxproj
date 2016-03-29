@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613E21191CAA66B100757D50 /* DetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613E21181CAA66B100757D50 /* DetailedViewController.swift */; };
 		61DCC3F01CA09FEF00ABA06D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCC3EF1CA09FEF00ABA06D /* AppDelegate.swift */; };
 		61DCC3F51CA09FEF00ABA06D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 61DCC3F31CA09FEF00ABA06D /* Main.storyboard */; };
 		61DCC3F71CA09FEF00ABA06D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 61DCC3F61CA09FEF00ABA06D /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		613E21181CAA66B100757D50 /* DetailedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailedViewController.swift; sourceTree = "<group>"; };
 		61DCC3EC1CA09FEF00ABA06D /* Homepwner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Homepwner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		61DCC3EF1CA09FEF00ABA06D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		61DCC3F41CA09FEF00ABA06D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				61DCC4031CA0A38900ABA06D /* Item.swift */,
 				61DCC4051CA0A74000ABA06D /* ItemStore.swift */,
 				61DCC3F31CA09FEF00ABA06D /* Main.storyboard */,
+				613E21181CAA66B100757D50 /* DetailedViewController.swift */,
 				61DCC4011CA0A06300ABA06D /* ItemsViewController.swift */,
 				61DCC4071CA9FD1100ABA06D /* ItemCell.swift */,
 				61DCC3F61CA09FEF00ABA06D /* Assets.xcassets */,
@@ -146,6 +149,7 @@
 			files = (
 				61DCC4021CA0A06300ABA06D /* ItemsViewController.swift in Sources */,
 				61DCC4041CA0A38900ABA06D /* Item.swift in Sources */,
+				613E21191CAA66B100757D50 /* DetailedViewController.swift in Sources */,
 				61DCC4061CA0A74000ABA06D /* ItemStore.swift in Sources */,
 				61DCC3F01CA09FEF00ABA06D /* AppDelegate.swift in Sources */,
 				61DCC4081CA9FD1100ABA06D /* ItemCell.swift in Sources */,

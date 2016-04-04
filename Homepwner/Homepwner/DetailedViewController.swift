@@ -23,7 +23,6 @@ class DetailedViewController: UIViewController, UITextFieldDelegate {
         
         view.endEditing(true)
     }
-    var item: Item!
         
     let numberFormatter: NSNumberFormatter = {
         let formatter = NSNumberFormatter()
@@ -76,6 +75,15 @@ class DetailedViewController: UIViewController, UITextFieldDelegate {
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true
+    }
+    
+    // PROPERTY OBSERVER - updates the title of the NavigationItem when user clicks to see the detail of the item
+    
+    var item: Item! {
+        didSet {
+            
+            navigationItem.title = item.name
+        }
     }
     
 }

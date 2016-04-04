@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class DetailedViewController: UIViewController {
+class DetailedViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet var nameField: UITextField!
     
@@ -19,6 +19,10 @@ class DetailedViewController: UIViewController {
     
     @IBOutlet var dateLabel: UILabel!
     
+    @IBAction func backGroundTapped(sender: AnyObject) {
+        
+        view.endEditing(true)
+    }
     var item: Item!
         
     let numberFormatter: NSNumberFormatter = {
@@ -38,6 +42,7 @@ class DetailedViewController: UIViewController {
         return formatter
     }()
     
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
@@ -52,6 +57,9 @@ class DetailedViewController: UIViewController {
     override func viewWillDisappear(animated: Bool) {
         super.viewWillDisappear(animated)
         
+        // Clear first responder
+        view.endEditing(true)
+        
         // "Save" changes to item
         item.name = nameField.text ?? ""
         item.serialNumber = serialNumberField.text
@@ -63,6 +71,11 @@ class DetailedViewController: UIViewController {
             item.valueInDollars = 0
             
         }
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

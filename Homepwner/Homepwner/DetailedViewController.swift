@@ -9,7 +9,42 @@
 import Foundation
 import UIKit
 
-class DetailedViewController: UIViewController, UITextFieldDelegate {
+class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    @IBAction func takePicture(sender: UIBarButtonItem) {
+        
+        let imagePicker = UIImagePickerController()
+        
+        // If the device has a camera, take a picture; otherwise pick from photo library
+        if UIImagePickerController.isSourceTypeAvailable(.Camera) {
+            
+            imagePicker.sourceType = .Camera
+            
+        } else {
+         
+            imagePicker.sourceType = .PhotoLibrary
+            
+        }
+        
+        imagePicker.delegate = self
+        
+        // Place image picker on the screen
+        presentViewController(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
+        
+        // Get image from info dictionary
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+        // Put image on to the screen in the image view
+        imageView.image = image
+        
+        // Take image picker off the screen - dismiss method
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    @IBOutlet var imageView: UIImageView!
     
     @IBOutlet var nameField: UITextField!
     
@@ -71,9 +106,11 @@ class DetailedViewController: UIViewController, UITextFieldDelegate {
             
         }
     }
+
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        
         return true
     }
     

@@ -30,13 +30,19 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         // Place image picker on the screen
         presentViewController(imagePicker, animated: true, completion: nil)
+        
     }
     
     
     // Create button func to delete image.
+    // Try to figured out constraint
+    
     @IBAction func clearImage(sender: AnyObject) {
-
-        imageView.delete(imageStore)
+        
+        
+        removeFromParentViewController()
+        
+        print("delete")
         
     }
     
@@ -105,14 +111,6 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         // If there is an assoc image w/ item display it on the image view
         let imageToDisplay = imageStore.imageForKey(key)
         imageView.image = imageToDisplay
-        
-        
-       
-        
-        
-        
-        
-        
         
     }
     

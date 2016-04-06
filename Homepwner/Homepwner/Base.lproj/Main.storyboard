@@ -173,8 +173,11 @@
                                             <action selector="takePicture:" destination="bIT-Cg-9Kv" id="sVN-JB-9RQ"/>
                                         </connections>
                                     </barButtonItem>
-                                    <barButtonItem width="440" style="plain" systemItem="fixedSpace" id="9CW-TN-CAN"/>
-                                    <barButtonItem title="Clear Image" id="DKP-q0-iuS"/>
+                                    <barButtonItem title="Clear Image" id="DKP-q0-iuS">
+                                        <connections>
+                                            <action selector="clearImage:" destination="bIT-Cg-9Kv" id="sUB-GA-gsn"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

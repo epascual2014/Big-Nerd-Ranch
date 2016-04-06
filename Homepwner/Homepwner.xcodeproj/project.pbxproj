@@ -16,6 +16,7 @@
 		61DCC4041CA0A38900ABA06D /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCC4031CA0A38900ABA06D /* Item.swift */; };
 		61DCC4061CA0A74000ABA06D /* ItemStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCC4051CA0A74000ABA06D /* ItemStore.swift */; };
 		61DCC4081CA9FD1100ABA06D /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61DCC4071CA9FD1100ABA06D /* ItemCell.swift */; };
+		61EE48181CB398A90053CD49 /* ImageStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61EE48171CB398A90053CD49 /* ImageStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		61DCC4031CA0A38900ABA06D /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = ../Item.swift; sourceTree = "<group>"; };
 		61DCC4051CA0A74000ABA06D /* ItemStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ItemStore.swift; path = ../ItemStore.swift; sourceTree = "<group>"; };
 		61DCC4071CA9FD1100ABA06D /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		61EE48171CB398A90053CD49 /* ImageStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,11 +66,12 @@
 			children = (
 				61DCC3EF1CA09FEF00ABA06D /* AppDelegate.swift */,
 				61DCC4031CA0A38900ABA06D /* Item.swift */,
-				61DCC4051CA0A74000ABA06D /* ItemStore.swift */,
-				61DCC3F31CA09FEF00ABA06D /* Main.storyboard */,
-				613E21181CAA66B100757D50 /* DetailedViewController.swift */,
-				61DCC4011CA0A06300ABA06D /* ItemsViewController.swift */,
 				61DCC4071CA9FD1100ABA06D /* ItemCell.swift */,
+				61DCC4051CA0A74000ABA06D /* ItemStore.swift */,
+				61DCC4011CA0A06300ABA06D /* ItemsViewController.swift */,
+				61EE48171CB398A90053CD49 /* ImageStore.swift */,
+				613E21181CAA66B100757D50 /* DetailedViewController.swift */,
+				61DCC3F31CA09FEF00ABA06D /* Main.storyboard */,
 				61DCC3F61CA09FEF00ABA06D /* Assets.xcassets */,
 				61DCC3F81CA09FEF00ABA06D /* LaunchScreen.storyboard */,
 				61DCC3FB1CA09FEF00ABA06D /* Info.plist */,
@@ -152,6 +155,7 @@
 				613E21191CAA66B100757D50 /* DetailedViewController.swift in Sources */,
 				61DCC4061CA0A74000ABA06D /* ItemStore.swift in Sources */,
 				61DCC3F01CA09FEF00ABA06D /* AppDelegate.swift in Sources */,
+				61EE48181CB398A90053CD49 /* ImageStore.swift in Sources */,
 				61DCC4081CA9FD1100ABA06D /* ItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

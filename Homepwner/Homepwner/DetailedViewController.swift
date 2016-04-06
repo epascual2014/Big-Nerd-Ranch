@@ -34,13 +34,16 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
-        // Get image from info dictionary
+        // Get selected image from info dictionary
         let image = info[UIImagePickerControllerOriginalImage] as! UIImage
         
-        // Put image on to the screen in the image view
+        // Store the image in the ImageStore for the items key
+        imageStore.setImage(image, forKey: item.itemKey)
+        
+        // Put that image on to the screen in the image view
         imageView.image = image
         
-        // Take image picker off the screen - dismiss method
+        // Take image picker off the screen -  call this in order to dismiss method
         dismissViewControllerAnimated(true, completion: nil)
     }
     
@@ -82,10 +85,19 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         nameField.text = item.name
         serialNumberField.text = item.serialNumber
-        valueField.text = "\(item.valueInDollars)"
-        dateLabel.text = "\(item.dateCreated)"
         valueField.text = numberFormatter.stringFromNumber(item.valueInDollars)
         dateLabel.text = dateFormatter.stringFromDate(item.dateCreated)
+        
+        // Get item key
+        let key = item.itemKey
+        
+        // If there is an assoc image w/ item display it on the image view
+        let imageToDisplay = imageStore.imageForKey(key)
+        imageView.image = imageToDisplay
+        
+        
+        
+        
     }
     
     override func viewWillDisappear(animated: Bool) {
@@ -123,4 +135,6 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         }
     }
     
+    // Adding dependency from ImageStore.
+    var imageStore: ImageStore!
 }

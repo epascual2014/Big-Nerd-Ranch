@@ -11,6 +11,7 @@ import UIKit
 
 class ItemsViewController: UITableViewController {
     
+    // Dependency from ItemStore
     var itemStore: ItemStore!
     
     required init?(coder aDecoder: NSCoder) {
@@ -19,6 +20,9 @@ class ItemsViewController: UITableViewController {
         navigationItem.leftBarButtonItem = editButtonItem()
         
     }
+    
+    // Depedency from imageStore
+    var imageStore: ImageStore!
     
     @IBAction func addNewItem(sender: AnyObject) {
         
@@ -72,17 +76,18 @@ class ItemsViewController: UITableViewController {
         if editingStyle == .Delete{
             let item = itemStore.allItems[indexPath.row]
             
-            let title = "Remove \(item.name)?"
+            let title = "Delete \(item.name)?"
             let message = "Are you sure you want to remove this item?"
             
             let ac = UIAlertController(title: title, message: message, preferredStyle: .ActionSheet)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: nil)
-            ac.addAction(cancelAction)
             
-            let deleteAction = UIAlertAction(title: "Remove", style: .Destructive, handler: {(action) -> Void in
+            let deleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: {(action) -> Void in
                 
                 // Remove the item from the store
                 self.itemStore.removeItem(item)
+                
+                // Remove the item's image from the image store
+                self.imageStore.deleteImageForKey(item.itemKey)
                 
                 // Also remove the row from the tabelview with an animation
                 self.tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
@@ -114,7 +119,12 @@ class ItemsViewController: UITableViewController {
                 // Get the item assoc with this row and pass it along
                 let item = itemStore.allItems[row]
                 let detailViewController = segue.destinationViewController as! DetailedViewController
-                detailViewController.item = item 
+                
+                // Sets itemProperty to detailViewController
+                detailViewController.item = item
+                
+                // Sets imageProperty to detailViewController
+                detailViewController.imageStore = imageStore
                 
             }
         }

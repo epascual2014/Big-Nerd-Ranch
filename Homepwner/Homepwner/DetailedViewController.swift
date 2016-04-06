@@ -32,6 +32,16 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         presentViewController(imagePicker, animated: true, completion: nil)
     }
     
+    
+    // Create button func to delete image.
+    @IBAction func clearImage(sender: AnyObject) {
+
+        imageView.delete(imageStore)
+        
+    }
+    
+    
+    
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
         // Get selected image from info dictionary
@@ -39,6 +49,7 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
         // Store the image in the ImageStore for the items key
         imageStore.setImage(image, forKey: item.itemKey)
+       
         
         // Put that image on to the screen in the image view
         imageView.image = image
@@ -94,6 +105,11 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         // If there is an assoc image w/ item display it on the image view
         let imageToDisplay = imageStore.imageForKey(key)
         imageView.image = imageToDisplay
+        
+        
+       
+        
+        
         
         
         

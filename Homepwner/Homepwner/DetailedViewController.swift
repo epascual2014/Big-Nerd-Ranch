@@ -11,7 +11,10 @@ import UIKit
 
 class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     
+    // MARK: Adding Pictures
+    
     @IBAction func takePicture(sender: UIBarButtonItem) {
+        
         
         let imagePicker = UIImagePickerController()
         
@@ -33,7 +36,7 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
     }
     
-    
+    // MARK: Clear Picture
     // Create button func to delete image.
     // Try to figured out constraint
     
@@ -46,7 +49,7 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         
     }
     
-    
+    // MARK: ImagepickerController
     
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
         
@@ -63,6 +66,8 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         // Take image picker off the screen -  call this in order to dismiss method
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    // MARK: outlets
     
     @IBOutlet var imageView: UIImageView!
     
@@ -133,6 +138,7 @@ class DetailedViewController: UIViewController, UITextFieldDelegate, UINavigatio
         }
     }
 
+    // MARK: Updates Title of the current Navigation Window 
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()

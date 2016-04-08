@@ -51,10 +51,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Saved all of the Items")
         
         } else {
+            
             print("Could not save any of the Items")
             
         }
-        
         
     }
 

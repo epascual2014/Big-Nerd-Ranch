@@ -8,3 +8,11 @@
 
 import CoreGraphics
 import Foundation
+
+struct Line {
+    
+    var begin = CGPoint.zero
+    var end = CGPoint.zero
+    
+    
+}

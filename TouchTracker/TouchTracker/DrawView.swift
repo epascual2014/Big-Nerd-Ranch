@@ -10,55 +10,60 @@ import Foundation
 import UIKit
 
 class DrawView: UIView  {
-
-    // MARK: Optional Line - tracks the line currently drawn
-    var currentLine: Line?
-    
     // MARK: Array of dictionary - tracks the lines being drawn which also have the ability to track one line at a time.
     var finishedLines = [Line]()
     
     // MARK: Stores lines in a value dictionary.
     var currentLines = [NSValue:Line]()
-    
 
-    func strokeLine(line: Line) {
-        
+    
+    @IBInspectable var finishedLineColor: UIColor = UIColor.blackColor() {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var currentLineColor: UIColor = UIColor.redColor() {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    @IBInspectable var lineThickness: CGFloat = 10 {
+        didSet {
+            setNeedsDisplay()
+        }
+    }
+    
+    // MARK: Strokeline Properties
+    func strokeLine(line:Line) {
         let path = UIBezierPath()
         path.lineWidth = 10
+        path.lineWidth = lineThickness
         path.lineCapStyle = CGLineCap.Round
-        
         path.moveToPoint(line.begin)
         path.addLineToPoint(line.end)
         path.stroke()
-        
-        
     }
     
-    
+    // MARK: DrawRect 
     override func drawRect(rect: CGRect) {
-        
         // Draw finished lines in black
         UIColor.blackColor().setStroke()
+        finishedLineColor.setStroke()
         for line in finishedLines {
             strokeLine(line)
         }
         
-        if let line = currentLine {
-            
-            // If there is a line currently being drawn, do it in red
-            UIColor.redColor().setStroke()
-            strokeLine(line)
-            
-        }
-        
         // Draw current lines in red
         UIColor.redColor().setStroke()
-        for (_,line) in currentLines {
+        currentLineColor.setStroke()
+        for (_, line) in currentLines {
             strokeLine(line)
         }
-        
     }
     
+      
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         

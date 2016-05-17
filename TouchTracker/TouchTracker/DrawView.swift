@@ -11,6 +11,22 @@ import UIKit
 
 class DrawView: UIView  {
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        
+        let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "doubleTap:")
+        doubleTapRecognizer.numberOfTapsRequired = 2
+        addGestureRecognizer(doubleTapRecognizer)
+        
+    }
+
+    func doubleTap(gestureRecognizer: UIGestureRecognizer) {
+        print("Recognized a double tap")
+        currentLines.removeAll(keepCapacity: false)
+        finishedLines.removeAll(keepCapacity: false)
+        setNeedsDisplay()
+        
+    }
     
     var currentLine: Line?
     var currentLines = [NSValue:Line]()

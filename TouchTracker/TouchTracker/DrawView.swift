@@ -16,21 +16,36 @@ class DrawView: UIView  {
         
         let doubleTapRecognizer = UITapGestureRecognizer(target: self, action: "doubleTap:")
         doubleTapRecognizer.numberOfTapsRequired = 2
+        
+        // Delays touchebegan so red dot wont show after doubletapping to clear
+        doubleTapRecognizer.delaysTouchesBegan = true
         addGestureRecognizer(doubleTapRecognizer)
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: "tap:")
+        tapRecognizer.delaysTouchesBegan = true
+        tapRecognizer.requireGestureRecognizerToFail(doubleTapRecognizer)
+        addGestureRecognizer(tapRecognizer)
         
     }
 
     func doubleTap(gestureRecognizer: UIGestureRecognizer) {
-        print("Recognized a double tap")
+        print("Recognized a DOUBLE TAP")
+        
+        selectedLineIndex = nil 
         currentLines.removeAll(keepCapacity: false)
         finishedLines.removeAll(keepCapacity: false)
         setNeedsDisplay()
         
     }
     
-    var currentLine: Line?
-    var currentLines = [NSValue:Line]()
-    var finishedLines = [Line]()
+    func tap(gestureRecognizer: UIGestureRecognizer) {
+        print("Recognized a SINGLE TAP")
+        
+        let point = gestureRecognizer.locationInView(self)
+        selectedLineIndex = indexOfLineAtPoint(point)
+        setNeedsDisplay()
+    }
+    
     
     @IBInspectable var finishedLineColor: UIColor = UIColor.blackColor() {
         didSet {
@@ -50,6 +65,10 @@ class DrawView: UIView  {
         }
     }
     
+    var currentLine: Line?
+    var currentLines = [NSValue:Line]()
+    var finishedLines = [Line]()
+    var selectedLineIndex: Int?
     
     // MARK: method for stroking the lines
     func strokeLine(line: Line) {
@@ -65,27 +84,48 @@ class DrawView: UIView  {
     }
     
     override func drawRect(rect: CGRect) {
-        //Draw finished lines in black
-        UIColor.blackColor().setStroke()
         finishedLineColor.setStroke()
         for line in finishedLines {
             strokeLine(line)
         }
         
-        if let line = currentLine {
-            // If there is a line currently being drawn, do it in red.
-            UIColor.redColor().setStroke()
-            strokeLine(line)
-        }
-        
-        // Draw current lines in red
-        UIColor.redColor().setStroke()
         currentLineColor.setStroke()
-        for (_, line) in currentLines {
+        for(_, line) in currentLines {
             strokeLine(line)
         }
         
+        if let index = selectedLineIndex {
+            UIColor.greenColor().setStroke()
+            let selectedLine = finishedLines[index]
+            strokeLine(selectedLine)
+        }
     }
+    
+    func indexOfLineAtPoint(point: CGPoint) -> Int? {
+        
+        // Find a line close to point
+        for (index, line) in finishedLines.enumerate() {
+            let begin = line.begin
+            let end = line.end
+            
+            // Check a few pts on the line
+            for t in CGFloat(0).stride(to: 1.0, by: 0.05) {
+                let x = begin.x + ((end.x - begin.x) * t)
+                let y = begin.y + ((end.y - begin.y) * t)
+                
+                // If tapped pt within 20 pts, lets return this line
+                if hypot(x - point.x, y - point.y) < 20.0 {
+                    return index
+                }
+                
+            }
+            
+        }
+        
+        // If nothing is close enough to the tapped point, then we didnt select a line
+        return nil
+    }
+
     
     // MARK: Turning touches into lines
     

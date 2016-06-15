@@ -9,8 +9,25 @@
 import Foundation
 import UIKit
 
-class DrawView: UIView  {
+class DrawView: UIView, UIGestureRecognizerDelegate  {
     
+    var currentLine: Line?
+    var currentLines = [NSValue:Line]()
+    var finishedLines = [Line]()
+    var selectedLineIndex: Int? {
+        didSet {
+            if selectedLineIndex == nil {
+                let menu = UIMenuController.sharedMenuController()
+                menu.setMenuVisible(false, animated: true)
+            }
+        }
+        
+    }
+    
+    var moveRecognizer: UIPanGestureRecognizer!
+    
+
+    // MARK: Init
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -26,6 +43,17 @@ class DrawView: UIView  {
         tapRecognizer.requireGestureRecognizerToFail(doubleTapRecognizer)
         addGestureRecognizer(tapRecognizer)
         
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "longPress:")
+        addGestureRecognizer(longPressRecognizer)
+        moveRecognizer = UIPanGestureRecognizer(target: self, action: "moveLine:")
+        moveRecognizer.delegate = self
+        moveRecognizer.cancelsTouchesInView = false
+        addGestureRecognizer(moveRecognizer)
+        
+    }
+    
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailByGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 
     func doubleTap(gestureRecognizer: UIGestureRecognizer) {
@@ -69,6 +97,41 @@ class DrawView: UIView  {
         setNeedsDisplay()
     }
     
+    func moveLine(gestureRecognizer: UIPanGestureRecognizer){
+        print("Recognized a pan")
+        
+        // If a line is selected
+        if let index = selectedLineIndex {
+            
+            // When the pan recognizer changes its position
+            if gestureRecognizer.state == .Changed {
+                
+                // How far has the pan moved?
+                let translation = gestureRecognizer.translationInView(self)
+                
+                // Add the translation to the current beginning and end points of the line
+                // Make sure there are no copy and paste typos!
+                finishedLines[index].begin.x += translation.x
+                finishedLines[index].begin.y += translation.y
+                finishedLines[index].end.x += translation.x
+                finishedLines[index].end.y += translation.y
+                
+                // Setting pangesture back to 0, to stop adding lines to the selected line
+                gestureRecognizer.setTranslation(CGPoint.zero, inView: self)
+                
+                // Redraw the screen
+                setNeedsDisplay()
+                
+            }
+            
+        } else {
+            // If no line is selected, dont do anything
+            return
+        }
+        
+    }
+    
+    
     func deleteLine(sender: AnyObject) {
         // Remove the selected line from the list of finishedLines
         if let index = selectedLineIndex {
@@ -81,6 +144,36 @@ class DrawView: UIView  {
         
     }
     
+    func longPress(gestureRecognizer: UIGestureRecognizer) {
+        print("Recgonized a long press")
+        
+        if gestureRecognizer.state == .Began {
+            let point = gestureRecognizer.locationInView(self)
+            selectedLineIndex = indexOfLineAtPoint(point)
+            
+            if selectedLineIndex != nil {
+                currentLines.removeAll(keepCapacity: false)
+            }
+        }
+        
+        else if gestureRecognizer.state == .Ended {
+            selectedLineIndex = nil
+        }
+        setNeedsDisplay()
+    }
+    
+    // MARK: method for stroking the lines
+    func strokeLine(line: Line) {
+        let path = UIBezierPath()
+        path.lineWidth = 10
+        path.lineWidth = lineThickness
+        path.lineCapStyle = CGLineCap.Round
+        
+        path.moveToPoint(line.begin)
+        path.addLineToPoint(line.end)
+        path.stroke()
+        
+    }
     
     @IBInspectable var finishedLineColor: UIColor = UIColor.blackColor() {
         didSet {
@@ -98,32 +191,6 @@ class DrawView: UIView  {
         didSet {
             setNeedsDisplay()
         }
-    }
-    
-    var currentLine: Line?
-    var currentLines = [NSValue:Line]()
-    var finishedLines = [Line]()
-    var selectedLineIndex: Int? {
-        didSet {
-            if selectedLineIndex == nil {
-                let menu = UIMenuController.sharedMenuController()
-                menu.setMenuVisible(false, animated: true)
-            }
-        }
-        
-    }
-    
-    // MARK: method for stroking the lines
-    func strokeLine(line: Line) {
-        let path = UIBezierPath()
-        path.lineWidth = 10
-        path.lineWidth = lineThickness
-        path.lineCapStyle = CGLineCap.Round
-        
-        path.moveToPoint(line.begin)
-        path.addLineToPoint(line.end)
-        path.stroke()
-        
     }
     
     override func canBecomeFirstResponder() -> Bool {
@@ -148,6 +215,7 @@ class DrawView: UIView  {
         }
     }
     
+    // MARK: IndexofLine
     func indexOfLineAtPoint(point: CGPoint) -> Int? {
         
         // Find a line close to point

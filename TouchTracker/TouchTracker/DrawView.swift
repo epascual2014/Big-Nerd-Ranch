@@ -43,6 +43,29 @@ class DrawView: UIView  {
         
         let point = gestureRecognizer.locationInView(self)
         selectedLineIndex = indexOfLineAtPoint(point)
+        
+        // Grab the menu controller
+        let menu = UIMenuController.sharedMenuController()
+        
+        if selectedLineIndex != nil {
+            
+            // Make DrawView the target of menu item action messages
+            becomeFirstResponder()
+            
+            // Create new "Delete" UIMenuItem
+            let deleteItem = UIMenuItem(title: "Delete", action: "deleteLine:")
+            menu.menuItems = [deleteItem]
+            
+            // Tell the menu where it should come from and show it
+            menu.setTargetRect(CGRect(x: point.x, y: point.y, width: 2, height: 2), inView: self)
+            menu.setMenuVisible(true, animated: true)
+            
+        } else {
+            
+            // Hide the menu if no line is selected
+            menu.setMenuVisible(false, animated: true)
+        }
+        
         setNeedsDisplay()
     }
     

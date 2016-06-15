@@ -117,6 +117,8 @@ class DrawView: UIView, UIGestureRecognizerDelegate  {
                 
                 // Setting pangesturerecognizer back to 0, to stop adding lines to the selected line
                 gestureRecognizer.setTranslation(CGPoint.zero, inView: self)
+                
+                // cancels the touch so the 2nd line stops being drawn.
                 gestureRecognizer.cancelsTouchesInView = true
                 
                 

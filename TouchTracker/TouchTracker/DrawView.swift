@@ -98,7 +98,6 @@ class DrawView: UIView, UIGestureRecognizerDelegate  {
     }
     
     func moveLine(gestureRecognizer: UIPanGestureRecognizer){
-        print("Recognized a pan")
         
         // If a line is selected
         if let index = selectedLineIndex {
@@ -116,15 +115,18 @@ class DrawView: UIView, UIGestureRecognizerDelegate  {
                 finishedLines[index].end.x += translation.x
                 finishedLines[index].end.y += translation.y
                 
-                // Setting pangesture back to 0, to stop adding lines to the selected line
+                // Setting pangesturerecognizer back to 0, to stop adding lines to the selected line
                 gestureRecognizer.setTranslation(CGPoint.zero, inView: self)
+                gestureRecognizer.cancelsTouchesInView = true
+                
                 
                 // Redraw the screen
                 setNeedsDisplay()
-                
+                print("Recognized a pan")
             }
             
         } else {
+            
             // If no line is selected, dont do anything
             return
         }

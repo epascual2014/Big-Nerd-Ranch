@@ -69,6 +69,18 @@ class DrawView: UIView  {
         setNeedsDisplay()
     }
     
+    func deleteLine(sender: AnyObject) {
+        // Remove the selected line from the list of finishedLines
+        if let index = selectedLineIndex {
+            finishedLines.removeAtIndex(index)
+            selectedLineIndex = nil
+            
+            // Redraw everything
+            setNeedsDisplay()
+        }
+        
+    }
+    
     
     @IBInspectable var finishedLineColor: UIColor = UIColor.blackColor() {
         didSet {
@@ -91,7 +103,15 @@ class DrawView: UIView  {
     var currentLine: Line?
     var currentLines = [NSValue:Line]()
     var finishedLines = [Line]()
-    var selectedLineIndex: Int?
+    var selectedLineIndex: Int? {
+        didSet {
+            if selectedLineIndex == nil {
+                let menu = UIMenuController.sharedMenuController()
+                menu.setMenuVisible(false, animated: true)
+            }
+        }
+        
+    }
     
     // MARK: method for stroking the lines
     func strokeLine(line: Line) {
@@ -104,6 +124,10 @@ class DrawView: UIView  {
         path.addLineToPoint(line.end)
         path.stroke()
         
+    }
+    
+    override func canBecomeFirstResponder() -> Bool {
+        return true
     }
     
     override func drawRect(rect: CGRect) {

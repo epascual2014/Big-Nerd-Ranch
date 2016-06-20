@@ -12,6 +12,8 @@
 		612DCD421D15F0A50040A22B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 612DCD411D15F0A50040A22B /* Assets.xcassets */; };
 		612DCD451D15F0A50040A22B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 612DCD431D15F0A50040A22B /* LaunchScreen.storyboard */; };
 		612DCD4D1D15F1020040A22B /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612DCD4C1D15F1020040A22B /* PhotosViewController.swift */; };
+		612DCD4F1D15F2E60040A22B /* FlickrAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612DCD4E1D15F2E60040A22B /* FlickrAPI.swift */; };
+		612DCD511D15FB700040A22B /* PhotoStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 612DCD501D15FB700040A22B /* PhotoStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		612DCD441D15F0A50040A22B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		612DCD461D15F0A50040A22B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		612DCD4C1D15F1020040A22B /* PhotosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		612DCD4E1D15F2E60040A22B /* FlickrAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlickrAPI.swift; sourceTree = "<group>"; };
+		612DCD501D15FB700040A22B /* PhotoStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,7 +42,7 @@
 		612DCD2E1D15F0A50040A22B = {
 			isa = PBXGroup;
 			children = (
-				612DCD391D15F0A50040A22B /* Photrama */,
+				612DCD391D15F0A50040A22B /* Photorama */,
 				612DCD381D15F0A50040A22B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,16 +55,19 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		612DCD391D15F0A50040A22B /* Photrama */ = {
+		612DCD391D15F0A50040A22B /* Photorama */ = {
 			isa = PBXGroup;
 			children = (
 				612DCD3A1D15F0A50040A22B /* AppDelegate.swift */,
 				612DCD4C1D15F1020040A22B /* PhotosViewController.swift */,
 				612DCD3E1D15F0A50040A22B /* Main.storyboard */,
+				612DCD4E1D15F2E60040A22B /* FlickrAPI.swift */,
+				612DCD501D15FB700040A22B /* PhotoStore.swift */,
 				612DCD411D15F0A50040A22B /* Assets.xcassets */,
 				612DCD431D15F0A50040A22B /* LaunchScreen.storyboard */,
 				612DCD461D15F0A50040A22B /* Info.plist */,
 			);
+			name = Photorama;
 			path = Photrama;
 			sourceTree = "<group>";
 		};
@@ -135,7 +142,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				612DCD4F1D15F2E60040A22B /* FlickrAPI.swift in Sources */,
 				612DCD4D1D15F1020040A22B /* PhotosViewController.swift in Sources */,
+				612DCD511D15FB700040A22B /* PhotoStore.swift in Sources */,
 				612DCD3B1D15F0A50040A22B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,7 +260,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Photrama/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.Photrama;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.Photorama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -262,7 +271,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Photrama/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.Photrama;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bignerdranch.Photorama;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -286,6 +295,7 @@
 				612DCD4B1D15F0A50040A22B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
